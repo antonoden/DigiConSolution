@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    @RenderSection("styles", required: false)
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/awesomefunctions")
+    @RenderSection("scripts", required: false)
+</head>
+<body style="">
+    <div class="navbar navbar-fixed-top" style="background-color:aliceblue; padding-left:5px; padding-right:5px">
+        <div class="container-fluid">
+            <div class="navbar-collapse">
+                <div class="navbar-header">
+                    @Html.ActionLink("DigiconSolution", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Skärmar", "Index", "Viewclients", new { area = "" }, new { @class = "" })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Spellistor", "Index", "Playlists", new { area = "" }, new { @class = "" })
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filer<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>  @Html.ActionLink("Lista", "Index", "Files", new { area = "" }, new { @class = "" }) </li>
+                                <li>@Html.ActionLink("Ladda upp fil", "Upload", "Files", new { area = "" }, new { @class = "" })</li>
+                                <li>@Html.ActionLink("Lägg till youtube", "AddYoutube", "Files", new { area = "" }, new { @class = "" })</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="container-fluid body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Digital Conference Solution</p>
+            </footer>
+        </div>
+</body>
+</html>

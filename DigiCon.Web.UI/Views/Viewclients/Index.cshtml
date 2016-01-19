@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DigiCon.Domain.Entities.Viewclient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vyklienter</h2>
+
+<p>
+    @Html.ActionLink("Skapa Ny", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ViewclientID)</th>
+        <th> @Html.DisplayNameFor(model => model.Name)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelitem => item.ViewclientID)</td>
+        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id=item.ViewclientID }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.ViewclientID }) |
+            @Html.ActionLink("Visa", "DisplayView", new { id=item.ViewclientID })
+        </td>
+    </tr>
+}
+
+</table>

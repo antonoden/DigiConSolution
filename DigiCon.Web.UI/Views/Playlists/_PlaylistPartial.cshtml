@@ -1,0 +1,71 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_ListPlaylist
+<div>
+    <a class="list-group-item">
+        @Html.LabelFor(Model => Model.Name) - @Model.Name
+        <span class="glyphicon glyphicon-edit pull-right"
+         onclick="editPlaylistButtonClicked(@Model.ID)">
+        </span>
+    </a>
+    <h4 class="list-group-item-heading"></h4>
+    @foreach (var slide in Model.Slides)
+    {
+        <a id="slide-@slide.SlideID"
+           class="list-group-item"
+           onclick="slideClicked(@slide.SlideID, @Model.ID)">
+            @slide.Name
+            <span class="glyphicon glyphicon-menu-right pull-right"></span>
+        </a>
+    }
+    <a id="addSlide"
+       class="list-group-item"
+       onclick="addSlideToPlaylistButtonClicked(@Model.ID)">
+       <span class="glyphicon glyphicon-plus-sign"></span>
+    </a>
+</div>
+    
+<script>
+    /* functions used in add slide to playlist-modal */
+    function addSlideToPlaylistButtonClicked(playlistid) {
+        // show modal
+        $("#addSlideModal").modal("show");
+
+        // ajax call for add youtube html to its tab in modal 
+        $.ajax({
+            url: "Home/AddYoutube",
+            type: "GET",
+            cache: false,
+            data: { playlistId: playlistid }
+        }).done(function (result) {
+            $('#addYoutubeTab').html(result);
+        });
+
+        // ajax call for new slide html to its tab in modal
+        $.ajax({
+            url: "Home/UploadSlide",
+            type: "GET",
+            cache: false,
+            data: { playlistId: playlistid }
+        }).done(function (result) {
+            $("#uploadSlideTab").html(result);
+        });
+    }
+
+    /* functions to be activated when a slide in 'onewindowsSolution' has been clicked */
+
+    function slideClicked(slideid, playlistid) {
+        $.ajax({
+            url: "Home/Slide",
+            type: "GET",
+            cache: false,
+            data: { playlistId: playlistid, slideId: slideid }
+        }).done(function (result) {
+            $('#slide').html(result);
+        });
+
+        $("#slide-" + slideid).addClass("active");
+        if (current_active_slide != slideid) {
+            $("#slide-" + current_active_slide).removeClass('active');
+            current_active_slide = slideid;
+        }
+    }
+</script>

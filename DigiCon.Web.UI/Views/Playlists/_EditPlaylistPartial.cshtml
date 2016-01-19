@@ -1,0 +1,111 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_EditPlaylist
+
+
+@using (Ajax.BeginForm("EditPlaylist", "Home", new { playlistId = Model.playlistID }, new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "editPlaylistModalContent",
+    InsertionMode = InsertionMode.Replace,
+    OnComplete = "updatePlaylistList()"
+}))
+{
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@Model.playlistName</h4>
+    </div>
+    <div class="modal-body">
+
+        <div class="form-group col-md-offset-2 col-md-10" style="padding-top:8px">
+            <label class="control-label col-md-2">Namn</label>
+            @Html.TextBoxFor(Model => Model.playlistName, new { @class = "form-control" })
+        </div>
+
+        <table>
+            <tr>
+                <th></th>
+                <th>Namn</th>
+                <th>Visningstid(sekunder)</th>
+                <th>Visningsorder</th>
+                <th></th>
+            </tr>
+            @for (var i = 0; i < Model.Slides.Count; i++)
+            {
+            <tr>
+
+                @Html.HiddenFor(Name => Model.Slides[i].Slide.SlideID)
+                @Html.HiddenFor(Animation => Model.Slides[i].Transition)
+                <td>
+                    @if (Model.Slides[i].Slide.ContentType == "youtube")
+                    {
+                        <img src="~/Content/Images/Youtube-48.png" alt="@Model.Slides[i].Slide.Name" style="height:50px;width:50px;" />
+                    }
+                    else
+                    {
+                        <img src="@Model.Slides[i].Slide.Path" alt="@Model.Slides[i].Slide.Name" style="height:50px;width:50px;" />
+                    }
+                </td>
+                <td>
+                    @Model.Slides[i].Slide.Name
+                </td>
+                <td>
+                    @Html.TextBoxFor(Duration => Model.Slides[i].Duration, new
+                {
+                    @type = "number",
+                    @min = "1000",
+                    @step = "500",
+                    @class = "form-control"
+                })
+                </td>
+                <td>
+                    @Html.TextBoxFor(Playorder => Model.Slides[i].Playorder, new
+                {
+                    @type = "number",
+                    @class = "form-control",
+                    @min = "1",
+                    @max = Model.Slides.Count,
+                    @onchange = "stepOrder(this)",
+                    @onfocus = "saveOld(this)"
+                })
+                </td>
+                <td>
+                    @Ajax.ActionLink("Koppla bort", "DeleteSlide", new
+                {
+                    playlistId = Model.playlistID,
+                    slideid = Model.Slides[i].Slide.SlideID
+                }, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "editPlaylistModalContent",
+                    InsertionMode = InsertionMode.Replace
+                })
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick=editPlaylistModalClose() >Stäng</button>
+        <input type="submit" class="btn btn-primary" value="Uppdatera" />
+    </div>
+}
+    
+<script>
+    function updatePlaylistList()
+    {
+        /* updates playlistview */
+        $.ajax({
+            url: "Home/Playlist",
+            type: "GET",
+            cache: false,
+            data: { playlistId: '@Model.playlistID' }
+        }).done(function (result) {
+            $('#playlist').html(result);
+        });
+
+        /* we would also like to update viewclientview here too. But we can't cuase we don't have access to viewclientId */
+    }
+</script>
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_ListSlide
+
+<div style="padding-top:5px">
+    <img src="@Model.Path" class="list-group-item slidepicture" style="width:200px;height:140px;" />
+
+    <a class="list-group-item">
+        @Html.LabelFor(Model => Model.Name) - @Model.Name
+    </a>
+    <a class="list-group-item">
+        @if (@Model.Contenttype != "youtube")
+        {
+        <label>Filtyp</label> <span>- Bild</span>
+        }
+        else
+        {
+        <label>Filtyp</label>  <span>- Youtube</span>;
+        }
+    </a>
+    <a class="list-group-item">
+        @Html.LabelFor(Model => Model.Playorder) - @Model.Playorder
+    </a>
+    <a class="list-group-item">
+        @Html.LabelFor(Model => Model.Duration) - @(Model.Duration / 1000)
+    </a>
+</div>
+
+
+<script>
+    if ('@Model.Contenttype' == 'youtube') {
+        var url = $(document).find("img").attr("src");
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        if (match && match[7].length == 11) {
+            var videoid = match[7];
+        }
+        if (videoid != null) {
+            $('#slide').find("img").attr("src", "http://img.youtube.com/vi/" + videoid + "/default.jpg");
+            $('#slide').find("img").width(200).height(140);
+        } else {
+            $(document).find("img").attr("src", "/Content/Images/Youtube-48.png");
+        }
+    } else { }
+</script>

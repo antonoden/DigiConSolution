@@ -1,0 +1,20 @@
+﻿@model DigiCon.Domain.Entities.Template
+
+@{
+    ViewBag.Title = "DeleteTemplate";
+}
+
+<h2>DeleteTemplate</h2>
+
+<h3>Är du säker på att du vill ta bort <b>@Model.Name</b>?</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <input type="submit" value="Ta Bort" />
+        @Html.ActionLink("Tillbaka till filer", "List")
+    </div>
+}
+

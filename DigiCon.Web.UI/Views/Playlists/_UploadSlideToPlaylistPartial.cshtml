@@ -1,0 +1,129 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_UploadSlideToPlaylist
+
+<form id="uploader">
+    <fieldset>
+
+        <div class="row" style="padding-top:10px">
+
+            <div class="col-md-5">
+                <span class="btn btn-default btn-file">
+                    <h3>Välj filer</h3>
+                    <input type="file" id="fileBox" multiple onchange="showFileStats()" />
+                </span>
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-md-5"></div>
+                <div id="choosenfiles" class="col-md-7">
+                    @ViewBag.Control
+                </div>
+            </div>
+
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Lägg till" />
+
+    </fieldset>
+</form>
+
+@if (Model.statusList.Count() > 0)
+{
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Filename</th>
+                    <th>Status Image</th>
+                    <th>Status Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var statusObject in Model.statusList)
+                {
+                    if (statusObject != null)
+                    {
+                        <tr>
+                            <td> @statusObject.filename</td>
+                            <td><img alt="statusimg" src="@statusObject.imgsrc" width="40" height="40"> </td>
+                            <td>@statusObject.message</td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+<script>
+    document.getElementById('uploader').onsubmit = function () {
+        var formdata = new FormData(); //FormData object
+        var fileInput = document.getElementById('fileBox');
+        //Iterating through each files selected in fileInput
+        for (i = 0; i < fileInput.files.length; i++) {
+            //Appending each file to FormData object
+            formdata.append(fileInput.files[i].name, fileInput.files[i]);
+        }
+        formdata.append("playlistId", '@Model.playlistId');
+        //Creating an XMLHttpRequest and sending
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/UploadSlide');
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                $("#uploadSlideTab").html(xhr.response);
+
+                $.ajax({
+                    url: "Home/Playlist",
+                    type: "GET",
+                    cache: false,
+                    data: { playlistId: '@Model.playlistId' }
+                }).done(function (result) {
+                    $('#playlist').html(result);
+                });
+            }
+        }
+        return false;
+    }
+
+    // function that writes a little status text about the files that has been chosen.
+    function showFileStats() {
+        $("#addFileButton").css("visibility", "visible");
+        var x = document.getElementById("fileBox");
+        var listdiv = document.getElementById("choosenfiles");
+        while (listdiv.firstChild) {
+            listdiv.removeChild(listdiv.firstChild);
+        }
+        var newDiv = document.createElement("div");
+
+        if (x != null) {
+            if ('files' in x) {
+                if (x.files.length == 0) {
+                    newDiv.textContent = "Ingen fil är vald.";
+                } else {
+                    for (var i = 0; i < x.files.length; i++) {
+                        newDiv.innerHTML += (i + 1) + ". file";
+                        var file = x.files[i];
+                        if ('name' in file) {
+                            newDiv.innerHTML += "name: " + file.name + "<br>";
+                        }
+                        if ('size' in file) {
+                            newDiv.innerHTML += "size: " + file.size + " bytes" + "<br>";
+                        }
+                        newDiv.id = ("listdiv" + (i + 1));
+                        newDiv.innerHTML += "<br>";
+                    }
+                }
+            }
+            if (x.value == "") {
+                listdiv.innerHTML += "Select one or more files.";
+            }
+            listdiv.appendChild(newDiv);
+        }
+        else {
+            console.log("no files selected");
+
+        }
+    }
+</script>

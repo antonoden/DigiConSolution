@@ -1,0 +1,26 @@
+﻿@model DigiCon.Web.UI.Models.Viewclients.ViewModel_AddPlaylist
+
+@{
+    ViewBag.Title = "AddPlaylist";
+}
+
+@using (Html.BeginForm("AddPlaylist", "Viewclients", FormMethod.Post))
+{
+    <table>
+        <thead>Spellistor</thead>
+        <tr>
+            <th></th>
+            <th>Namn</th>
+        </tr>
+        @for (int i = 0; i < Model.Playlists.Count; i++)
+        {
+            <tr>
+                <td>@Html.CheckBoxFor(Model => Model.IsSelected[i])</td>
+                <td>@Model.Playlists[i].Name</td>
+            </tr>
+        }
+    </table>
+
+    <input type="submit" value="Lägg till spellistor"/>    
+}
+

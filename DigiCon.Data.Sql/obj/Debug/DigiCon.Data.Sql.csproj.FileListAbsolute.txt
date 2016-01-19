@@ -1,0 +1,16 @@
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\DigiCon.Data.Sql.dll.config
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\DigiCon.Data.Sql.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\DigiCon.Data.Sql.pdb
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\DigiCon.Domain.Entities.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\EntityFramework.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\DigiCon.Domain.Entities.pdb
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\EntityFramework.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\obj\Debug\DigiCon.Data.Sql.csprojResolveAssemblyReference.cache
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\obj\Debug\DigiCon.Data.Sql.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Data.Sql\obj\Debug\DigiCon.Data.Sql.pdb

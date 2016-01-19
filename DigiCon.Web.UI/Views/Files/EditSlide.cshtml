@@ -1,0 +1,26 @@
+﻿@model DigiCon.Web.UI.Models.Files.EditSlide
+@{ 
+    ViewBag.Title = "EditSlide";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <h2>EditSlide</h2>
+        <div class=""><img src="@Model.Path" style="width:200px;height:200px;" /></div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.LabelFor(Model => Model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextBoxFor(Model => Model.Name, Model.Name, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+

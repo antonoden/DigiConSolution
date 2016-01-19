@@ -1,0 +1,22 @@
+﻿@model DigiCon.Domain.Entities.Playlist
+
+@{
+    ViewBag.Title = "Delete";
+}
+<h3>Är du säker på att du vill ta bort <b>"@Model.Name"</b>?</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Ta bort" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka", "Edit")
+          
+        </div>
+    }
+</div>

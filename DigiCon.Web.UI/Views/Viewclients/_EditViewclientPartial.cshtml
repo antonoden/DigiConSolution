@@ -1,0 +1,107 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_EditPlaylistsInViewclient
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Ändra vyklient - @Model.viewclientName</h4>
+    @Html.HiddenFor(Model => Model.viewclientName)
+</div>
+
+@using (Ajax.BeginForm("EditViewclient", "Home", new { viewclientId = Model.viewclientID }, new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "editViewclientModalContent",
+    InsertionMode = InsertionMode.Replace,
+    OnComplete = "updateViewclientList()",
+    OnSuccess = "",
+    OnFailure = "",
+    OnBegin = ""
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.viewclientID)
+
+        <div class="form-group col-md-offset-2 col-md-10" style="padding-top:8px">
+            <label class="control-label col-md-2">Namn</label>
+            @Html.TextBoxFor(Model => Model.viewclientName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10 container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vyklients spellistor</th>
+                            <th>Visningsorder</th>
+                            <th>Koppla bort spellista</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var playlist in Model.playlists)
+                        {
+                            <tr>
+                                <td>
+                                    @playlist.playlist.Name
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(Playorder => playlist.Playorder, new
+                               {
+                                   @type = "number",
+                                   @class = "form-control",
+                                   @min = "1",
+                                   @max = Model.playlists.Count,
+                                   @onchange = "stepOrder(this)",
+                                   @onfocus = "saveOld(this)"
+                               })
+                                </td>
+                                <td>
+                                    @Ajax.ActionLink("Koppla bort", "DeletePlaylistFromViewclient", new
+                               {
+                                   viewclientId = Model.viewclientID,
+                                   playlistId = playlist.playlist.PlaylistID
+                               }, new AjaxOptions
+                               {
+                                   HttpMethod = "GET",
+                                   UpdateTargetId = "editPlaylistsInViewclientModalContent",
+                                   InsertionMode = InsertionMode.Replace
+                               })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-default" onclick=editViewclientModalClose()>Stäng</button>
+                <input type="submit" value="Uppdatera" onclick="editViewclientModalClose()" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function updateViewclientList()
+    {
+        $.ajax({
+            url: "Home/Viewclient",
+            type: "GET",
+            cache: false,
+            data: { viewclientId: '@Model.viewclientID' }
+        }).done(function (result) {
+            $('#viewclient').html(result);
+        });
+
+        $.ajax({
+            url: "Home/ListViewclients",
+            type: "GET",
+            cache: false
+        }).done(function (result) {
+            $('#viewclients').html(result);
+        });
+    }
+</script>

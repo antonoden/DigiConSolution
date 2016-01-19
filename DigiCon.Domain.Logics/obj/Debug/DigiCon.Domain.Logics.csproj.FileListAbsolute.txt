@@ -1,0 +1,4 @@
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Logics\bin\Debug\DigiCon.Domain.Logics.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Logics\bin\Debug\DigiCon.Domain.Logics.pdb
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Logics\obj\Debug\DigiCon.Domain.Logics.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Logics\obj\Debug\DigiCon.Domain.Logics.pdb

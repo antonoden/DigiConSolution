@@ -1,0 +1,48 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_AddSlideToPlaylist
+
+  
+@using (Ajax.BeginForm("AddSlide", "Home", new { playlistId = Model.playlistID }, new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "playlist",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+    @Html.HiddenFor(Mode => Model.playlistID)
+    <table>
+        @for (int i = 0; i < Model.Slides.Count(); i++)
+        {
+            <tr>
+                <td>@Html.CheckBoxFor(Model => Model.isSelected[i])</td>
+                <td>
+                    @if (Model.Slides[i].ContentType == "youtube")
+                    {<img src="~/Content/Images/Youtube-48.png" alt="@Model.Slides[i].Name" style="height:50px;width:50px;" />}
+                    else
+                    {<img src="@Model.Slides[i].Path" alt="@Model.Slides[i].Name" style="height:50px;width:50px;" />}
+                </td>
+                <td>@Model.Slides[i].Name</td>
+            </tr>
+        }
+</table>
+    <input type="submit" class="btn btn-primary" onclick="addSlideModalSave(@Model.playlistID)" value="Lägg till" />
+}
+
+<script>
+    
+
+    function addSlideModalClose()
+    {
+        $("#addSlideModal").modal("toggle");
+    }
+
+    function addPlaylistModalClose()
+    {
+        $("#addPlaylistModal").modal("toggle");
+    }
+
+    function addPlaylistModalSave() {
+        addPlaylistModalClose();
+    }
+
+
+</script>

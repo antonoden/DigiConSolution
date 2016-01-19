@@ -1,0 +1,17 @@
+﻿@model DigiCon.Domain.Entities.Slide
+
+@{
+    ViewBag.Title = "DeleteSlide";
+}
+
+<h3>Är du säker på att du vill ta bort <b>@Model.Name</b>?</h3>
+<img src="@Model.Path" />
+@using (Html.BeginForm("DeleteSlideConfirmed", "Files", new { id = Model.SlideID }))
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <input type="submit" value="Ta bort" />
+        @Html.ActionLink("Tillbaka", "Index")
+    </div>
+}

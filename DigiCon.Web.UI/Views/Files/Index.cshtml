@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DigiCon.Domain.Entities.Slide>
+
+<h2>Slides</h2>
+<table>
+    <tr>
+        <th>Bild</th>
+        <th>Namn</th>
+        <th></th>
+    </tr>
+    @foreach(var slide in Model)
+    {
+        <tr>
+            @if (slide.ContentType == "youtube")
+            {
+                <td><img src="~/Content/Images/Youtube-48.png" alt="@slide.Name" style="height:50px;width:50px;" /></td>
+            }
+            else
+            {
+                <td><img src="@slide.Path" alt="@slide.Name" style="height:50px;width:50px;" /></td>
+            }
+            <td><label>@slide.Name</label></td>
+            <td>
+                @Html.ActionLink("Ta bort", "DeleteSlide", new { id = slide.SlideID })
+                @Html.ActionLink("Ändra", "EditSlide", new { id = slide.SlideID })
+            </td>
+        </tr>
+
+    }
+</table>

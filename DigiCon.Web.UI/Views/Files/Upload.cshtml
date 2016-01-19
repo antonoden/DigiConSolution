@@ -1,0 +1,130 @@
+﻿@model DigiCon.Web.UI.Models.Files.Upload
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css " rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+
+@using (Html.BeginForm("Upload", "Files", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row" style="padding-top:10px">
+        <div class="col-md-5">
+
+            <span class="btn btn-default btn-file">
+               <h3>Välj filer</h3>
+               @Html.TextBoxFor(c => c.File, new
+               {
+                   type = "file",
+                   multiple = "true",
+                   onchange = "myFunction()"
+               })
+            </span>
+            </div>
+        <div class="col-md-4">
+
+            <span class="btn btn-default btn-file" style="width:100%">
+                Ladda upp
+                <input type="submit" multiple="multiple"/>
+            </span>
+
+            @if (IsPost)
+            {
+                <div class="container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Filename</th>
+                                <th>Status Image</th>
+                                <th>Status Text</th>
+                            </tr>
+                        </thead>
+                        @foreach (var statusObject in Model.statusList)
+                        {
+                            if (statusObject != null)
+                            {
+                                <tbody>
+                                    <tr>
+                                        <td> @statusObject.filename</td>
+                                          <td><img alt="statusimg" src="@statusObject.imgsrc" width="40" height="40"> </td>  
+                                        <td>@statusObject.message</td>
+                                    </tr>
+                                </tbody>
+
+                            }
+
+                        }
+                    </table>
+                </div>
+            }
+
+        </div>
+
+        <div class="col-md-2">
+
+
+        </div>
+        <div id="displaydiv" class="col-md-6">
+
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div id="choosenfiles" class="col-md-7">
+
+            @ViewBag.Control
+
+        </div>
+    </div>
+}
+
+
+
+
+<script>
+    function myFunction() {
+    var x = document.getElementById("File");
+    var listdiv = document.getElementById("choosenfiles")
+    while (listdiv.firstChild) {
+        listdiv.removeChild(listdiv.firstChild);
+    }
+    var newDiv = document.createElement("div");
+    //var disptxt = document.createAttribute("pre");
+
+    if ('files' in x) {
+        if (x.files.length == 0) {
+            newDiv.textContent = "Ingen fil är vald.";
+        } else {
+            for (var i = 0; i < x.files.length; i++) {
+                newDiv.innerHTML += (i + 1) + ". file";
+                var file = x.files[i];
+                if ('name' in file) {
+                    newDiv.innerHTML += "name: " + file.name + "<br>";
+                }
+                if ('size' in file) {
+                    newDiv.innerHTML += "size: " + file.size + " bytes" +"<br>";
+                }
+
+                newDiv.id = ("listdiv" +(i+1));
+                newDiv.innerHTML +="<br>";
+                //listdiv.appendChild(newDiv);
+            }
+        }
+    }
+    else {
+        if (x.value == "") {
+           listdiv.innerHTML+= "Select one or more files.";
+        } else {
+          //  disptxt += "The files property is not supported by your browser!";
+          //  disptxt += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+        }
+        }
+    listdiv.appendChild(newDiv);
+  //  document.getElementById("choosenfiles").innerHTML = disptxt;
+    }
+</script>

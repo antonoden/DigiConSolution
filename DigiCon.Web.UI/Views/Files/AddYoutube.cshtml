@@ -1,0 +1,32 @@
+﻿@model DigiCon.Web.UI.Models.Files.AddYoutube
+@{
+    ViewBag.Title = "Youtube";
+}
+
+<h2>Youtube</h2>
+
+@using (Html.BeginForm("AddYoutube", "Files", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(Model => Model.Url, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Url, "", new { @class = "text-danger input-lg" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(Model => Model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(Model => Model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(Model => Model.Name, "", new { @class = "text-danger input-lg" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Lägg till" class="btn btn-default" />
+        </div>
+    </div>
+}
+

@@ -1,0 +1,80 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_ListViewclient
+<div>
+    <a class="list-group-item">
+        @Html.LabelFor(Model => Model.Name) -         @Model.Name
+        <span class="glyphicon glyphicon-edit pull-right"
+              onclick="editViewclientButtonClicked(@Model.ID)">
+        </span>
+        <span class="glyphicon glyphicon-expand pull-right" style="padding-right:10px" onclick="showViewclientButtonClicked(@Model.ID)">
+        </span>
+    </a>
+    <h4 class="list-group-item-heading"></h4>
+    @foreach (var playlist in Model.Playlists)
+    {
+        <a id="playlist-@playlist.PlaylistID"
+           class="list-group-item"
+           onclick="playlistClicked(@playlist.PlaylistID, @Model.ID)">
+            @playlist.Name
+            <span class="glyphicon glyphicon-menu-right pull-right"></span>
+        </a>
+    }
+    <a id="addPlaylistButton"
+       class="list-group-item"
+       onclick="addPlaylistToViewclientButtonClicked(@Model.ID)">
+        <span class="glyphicon glyphicon-plus-sign"></span>
+    </a>
+</div>
+
+<script>
+    function editViewclientButtonClicked(viewclientId) {
+        $.ajax({
+            url: "Home/EditViewclient",
+            type: "GET",
+            cache: false,
+            data: { viewclientId: viewclientId }
+        }).done(function (result) {
+            $('#editViewclientModalContent').html(result);
+            $("#editViewclientModal").modal("show");
+        });
+    }
+
+    /* functions to be activated when a playlist in 'onewindowsolution' has been clicked */
+
+    function playlistClicked(playlistid, viewclientid)
+    {
+        $("#slide").empty();
+
+        // ajax call playlist
+        $.ajax({
+            url: "Home/Playlist",
+            type: "GET",
+            cache: false,
+            data: { playlistId: playlistid }
+        }).done(function (result) {
+            $('#playlist').html(result);
+        });
+
+        // ajax call addslide
+        $.ajax({
+            url: "Home/AddSlide",
+            type: "GET",
+            cache: false,
+            data: { playlistId: playlistid }
+        }).done(function (result) {
+            $('#addSlideTab').html(result);
+        });
+
+        $("#playlist-" + playlistid).addClass("active");
+        if (current_active_playlist != playlistid)
+        {
+            $("#playlist-" + current_active_playlist).removeClass('active');
+            current_active_playlist = playlistid;
+        }
+    }
+
+    /* opens up a new tab with showing the viewclient slideshow */
+    function showViewclientButtonClicked(viewclientid)
+    {
+        window.location.href ="Viewclients/DisplayView/"+viewclientid;
+    }
+</script>

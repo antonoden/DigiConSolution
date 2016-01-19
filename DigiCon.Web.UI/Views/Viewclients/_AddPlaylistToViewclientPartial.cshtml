@@ -1,0 +1,20 @@
+﻿@model DigiCon.Web.UI.Models.ViewModel_AddPlaylistToViewclient
+
+@using (Ajax.BeginForm("AddPlaylist", "Home", new { viewclientId = Model.viewclientID }, new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "viewclient",
+    InsertionMode = InsertionMode.Replace
+}))
+{         
+    <table>
+        @for (int i = 0; i < Model.playlists.Count(); i++)
+        {
+            <tr>
+                <td>@Html.CheckBoxFor(Model => Model.isSelected[i])</td>
+                <td>@Model.playlists[i].Name</td>
+            </tr>
+        }
+    </table>
+    <input type="submit" class="btn btn-primary" onclick="addPlaylistModalSave()" value="Spara ändringar" />
+}

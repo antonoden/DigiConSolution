@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67906af4-0630-446d-a6ae-51faf6994bd3}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>DigiCon.Modeling.Diagram</Name>
+    <RootNamespace>DigiCon.Modeling.Diagram</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="codestructure.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Graph.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLClassDiagram.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UMLClassDiagram.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UMLClassDiagram.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\DigiCon.Modeling.Diagram.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigiCon.Data.Sql\DigiCon.Data.Sql.csproj">
+      <Name>DigiCon.Data.Sql</Name>
+      <Project>{a80a1db3-2365-4977-9b37-5c9e0b42122c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiCon.Domain.Entities\DigiCon.Domain.Entities.csproj">
+      <Name>DigiCon.Domain.Entities</Name>
+      <Project>{e6ffa596-bc29-4eb6-a57c-0faefdd67d6f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiCon.Domain.Logics\DigiCon.Domain.Logics.csproj">
+      <Name>DigiCon.Domain.Logics</Name>
+      <Project>{7ee740d3-357d-4a03-9e44-deee9757ea4e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiCon.Tests.Repository\DigiCon.Test.Repositories.csproj">
+      <Name>DigiCon.Test.Repositories</Name>
+      <Project>{68021439-d8c7-405f-999c-55c67f90d0a2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DigiCon.Web.UI\DigiCon.Web.UI.csproj">
+      <Name>DigiCon.Web.UI</Name>
+      <Project>{1cfa3280-a4e1-499b-a6f7-1b3d50896c1c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,33 @@
+﻿@model DigiCon.Web.UI.Models.Playlists.AddSlide
+
+@{
+    ViewBag.Title = "AddSlide";
+}
+
+@using (Html.BeginForm("AddSlide", "Playlists", FormMethod.Post))
+{
+    <table>
+        <thead>Spellistor</thead>
+        <tr>
+            <th></th>
+            <th>Namn</th>
+        </tr>
+        @for (int i = 0; i < Model.Slides.Count; i++)
+        {
+            <tr>
+                <td>@Html.CheckBoxFor(Model => Model.IsSelected[i])</td>
+                <td>
+                    @if (Model.Slides[i].ContentType == "youtube"){
+                        <img src="~/Content/Images/Youtube-48.png" alt="@Model.Slides[i].Name" style="height:50px;width:50px;" />
+                    }else{
+                        <img src="@Model.Slides[i].Path" alt="@Model.Slides[i].Name" style="height:50px;width:50px;" />
+                    }
+                </td>
+                <td>@Model.Slides[i].Name</td>
+            </tr>
+        }
+    </table>
+
+    <input type="submit" value="Lägg till slides" />
+}
+

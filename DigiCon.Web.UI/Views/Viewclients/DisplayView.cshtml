@@ -1,0 +1,108 @@
+﻿@model IEnumerable<DigiCon.Web.UI.Models.SlideView>
+<!DOCTYPE html>
+@{
+    ViewBag.Title = "DisplayView";
+    Layout = "";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Fullscreen.css"rel="stylesheet" type="text/css"/>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+
+<body onload="slideviewer()">
+
+    <div id ="myMedia"class="mediaarea">
+       
+        @foreach (var slide in Model)
+        {
+            if (slide.Slide.ContentType == "youtube")
+            {
+                    <iframe
+                        id="Slide @slide.Playorder"
+                        data-transition="slide"
+                        data-duration="@slide.Duration"
+                        data-playorder="@slide.Playorder" 
+                        class="testvideo"
+                        src="" 
+                        data-linksrc="@slide.Slide.Path?autoplay=1&cc_load_policy=1"
+                        allowfullscreen>                                                
+                    </iframe>
+            }
+            else if (slide.Slide.ContentType == "image/jpeg" || slide.Slide.ContentType == "image/jpg" || slide.Slide.ContentType == "image/png")
+            {
+                    <img 
+                         id="Slide @slide.Playorder"
+                        data-transition="slide"
+                        data-duration="@slide.Duration"
+                        data-playorder="@slide.Playorder"
+                        class="testbild"
+                        src="@slide.Slide.Path" 
+                         />                
+            }
+        }    
+    </div> 
+</body>
+
+<script>
+   
+var i = 1;
+var lastElement;
+var currElement;
+var youtubesrc;
+var currsrc;
+var numberofelement;
+var currlinksrc;
+var poslast;
+var currentTimer = 0;
+
+function slideviewer()
+{
+    if(i>numberofelement){
+    var location = self.location;
+    window.location.reload(true);}
+
+    numberofelement = $('[id^="Slide "]').length;
+    console.log("Here comes the length " + numberofelement);
+    currElement = $("html").find("[data-playorder='" + i + "']");
+    currsrc = $(currElement[0]).attr('src');
+    currlinksrc = currElement.attr('data-linksrc');
+    console.log("Curr element " + currElement.attr('src'));
+    $(currElement).fadeTo("slow", 1, function () {
+        if (typeof currlinksrc !== typeof undefined) {
+            //sets src
+            clearTimeout(currentTimer);
+            $(currElement).attr('src', currlinksrc);
+        }
+        //If the element is the last in the list
+        if (numberofelement == 1) {
+            poslast = i;
+        } else if ((i == 1) && (numberofelement != i)) {
+            poslast = numberofelement;
+        } else {
+            poslast = i - 1;
+        }
+        lastElement = $("html").find("[data-playorder='" + (poslast) + "']");
+        console.log("Last element " + lastElement.attr('src'));
+        console.log("The counter " + i);
+        //Disabels the prev element
+        $(lastElement).fadeTo("slow", 0, function () {
+            if (lastElement.length !== 0) {
+                if (lastElement.prop('tagName') == "IFRAME") {
+                    console.log("Src deleted on last" + $(lastElement[0]).attr('src') + "\nOn object " + $(lastElement).attr('id'));
+                    $(lastElement).attr('src', "");
+                }
+            } else { console.log("No prev slide"); }
+            if (i <= numberofelement) {
+                i++;
+            }
+            console.log("Antal sekunder" + $(currElement).data("duration"));
+            currentTimer = setTimeout(slideviewer, $(currElement).data("duration"));
+        });
+    });
+  }
+</script>

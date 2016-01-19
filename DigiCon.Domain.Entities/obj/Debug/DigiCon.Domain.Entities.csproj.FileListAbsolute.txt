@@ -1,0 +1,14 @@
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\DigiCon.Domain.Entities.dll.config
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\DigiCon.Domain.Entities.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\DigiCon.Domain.Entities.pdb
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\EntityFramework.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\EntityFramework.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\obj\Debug\DigiCon.Domain.Entities.csprojResolveAssemblyReference.cache
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\obj\Debug\DigiCon.Domain.Entities.dll
+C:\Users\anoden.SESOG\Documents\workspace\exjobb\Karlstad.EX-JOBB\DigitalSkyltning\DigiconSolution\DigiCon.Domain.Entities\obj\Debug\DigiCon.Domain.Entities.pdb

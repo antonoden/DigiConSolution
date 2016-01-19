@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- overview of the viewclients, playlists and slides -->
+<div class="row-fluid">
+    
+    <div class="span2 list-group thelists">
+        <div id="viewclients">
+        </div>
+    </div>
+
+    <div class="span3 list-group thelists">
+        <div id="viewclient">
+        </div>
+    </div>
+
+    <div class="span3 list-group thelists">
+        <div id="playlist">
+        </div>
+    </div>
+
+    <div class="span3 list-group thelists">
+        <div id="slide">
+        </div>
+    </div>
+    
+</div>
+
+<!-- modal for adding playlists -->
+<div id="addPlaylistToViewclient">
+    <div id="addPlaylistModal" class="modal fade" tabindex="1" role="dialog" aria-labelledby="add Playlist" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Lägg till spellista</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#addPlaylistTab" data-toggle="tab">Existerande</a></li>
+                        <li><a href="#addCreatePlaylistTab" data-toggle="tab">Skapa ny</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- add an existing playlist to viewclient - tab -->
+                        <div class="tab-pane active" id="addPlaylistTab">
+
+                        </div>
+
+                        <!-- create and add a playlist to viewclient - tab -->
+                        <div class="tab-pane" id="addCreatePlaylistTab">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onclick="addPlaylistModalClose()">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal for adding slides -->
+<div id="addSlideToPlaylist">
+    <div id="addSlideModal" class="modal fade" tabindex="1" role="dialog" aria-labelledby="add Slide" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Lägg till slide</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#addSlideTab" data-toggle="tab">Existerande</a></li>
+                        <li><a href="#addYoutubeTab" data-toggle="tab">Youtube</a></li>
+                        <li><a href="#uploadSlideTab" data-toggle="tab">Ladda upp</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- Existerande slide -->
+                        <div class="tab-pane active" id="addSlideTab">
+
+                        </div>
+
+                        <!-- Ny slide/youtube -->
+                        <div class="tab-pane" id="addYoutubeTab">
+
+                        </div>
+
+                        <!-- Ny slide/fil -->
+                        <div class="tab-pane" id="uploadSlideTab">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onclick="addSlideModalClose()">Stäng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal for editing slides in playlist -->
+<div id="editPlaylist">
+    <div id="editPlaylistModal" class="modal fade" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div id="editPlaylistModalContent" class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal for editing playlists in viewclient -->
+<div id="editViewclient">
+    <div id="editViewclientModal" class="modal fade" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div id="editViewclientModalContent" class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    /* script that shows all the viewclients in a list in the overview */
+    $.ajax({
+        url: "Home/ListViewclients",
+        type: "GET",
+        cache: false
+    }).done(function (result) {
+        $('#viewclients').html(result);
+    });
+
+    var current_active_slide;
+    var current_active_playlist;
+    var current_active_viewclient;
+</script>

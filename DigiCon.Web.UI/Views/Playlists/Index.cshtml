@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DigiCon.Domain.Entities.Playlist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Spellistor</h2>
+<p>
+    @Html.ActionLink("Skapa Ny", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Namn</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Name</td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id=item.PlaylistID }) |
+            @Html.ActionLink("Ta Bort", "Delete", new { id=item.PlaylistID })
+        </td>
+    </tr>
+}
+</table>

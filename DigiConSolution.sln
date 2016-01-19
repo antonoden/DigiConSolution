@@ -1,0 +1,135 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Web.UI", "DigiCon.Web.UI\DigiCon.Web.UI.csproj", "{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{4021EF69-2590-4CE6-A135-5DD5F39369F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{A091A67D-0DA4-4895-9CC0-C441D25EA15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Domain.Logics", "DigiCon.Domain.Logics\DigiCon.Domain.Logics.csproj", "{7EE740D3-357D-4A03-9E44-DEEE9757EA4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{02F625CB-9E4D-4119-B8AA-F8EE78341144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Data.Sql", "DigiCon.Data.Sql\DigiCon.Data.Sql.csproj", "{A80A1DB3-2365-4977-9B37-5C9E0B42122C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Domain.Entities", "DigiCon.Domain.Entities\DigiCon.Domain.Entities.csproj", "{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AA8B308E-5CB4-4E5B-8858-B7A8F49FC677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Test.Repositories", "DigiCon.Tests.Repository\DigiCon.Test.Repositories.csproj", "{68021439-D8C7-405F-999C-55C67F90D0A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{8F83141D-01F1-46BE-97DE-6E03D54F5696}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "DigiCon.Modeling.Diagram", "DigiCon.Modeling.Diagram\DigiCon.Modeling.Diagram.modelproj", "{67906AF4-0630-446D-A6AE-51FAF6994BD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{337EA492-8E8B-4D3A-B53C-2CBDFF4DEE16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiCon.Service.Repositories", "DigiCon.Service.Repositories\DigiCon.Service.Repositories.csproj", "{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE740D3-357D-4A03-9E44-DEEE9757EA4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE740D3-357D-4A03-9E44-DEEE9757EA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE740D3-357D-4A03-9E44-DEEE9757EA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE740D3-357D-4A03-9E44-DEEE9757EA4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A80A1DB3-2365-4977-9B37-5C9E0B42122C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A80A1DB3-2365-4977-9B37-5C9E0B42122C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A80A1DB3-2365-4977-9B37-5C9E0B42122C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A80A1DB3-2365-4977-9B37-5C9E0B42122C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68021439-D8C7-405F-999C-55C67F90D0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68021439-D8C7-405F-999C-55C67F90D0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68021439-D8C7-405F-999C-55C67F90D0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68021439-D8C7-405F-999C-55C67F90D0A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67906AF4-0630-446D-A6AE-51FAF6994BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67906AF4-0630-446D-A6AE-51FAF6994BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67906AF4-0630-446D-A6AE-51FAF6994BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67906AF4-0630-446D-A6AE-51FAF6994BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CFA3280-A4E1-499B-A6F7-1B3D50896C1C} = {4021EF69-2590-4CE6-A135-5DD5F39369F9}
+		{7EE740D3-357D-4A03-9E44-DEEE9757EA4E} = {A091A67D-0DA4-4895-9CC0-C441D25EA15E}
+		{A80A1DB3-2365-4977-9B37-5C9E0B42122C} = {02F625CB-9E4D-4119-B8AA-F8EE78341144}
+		{E6FFA596-BC29-4EB6-A57C-0FAEFDD67D6F} = {A091A67D-0DA4-4895-9CC0-C441D25EA15E}
+		{68021439-D8C7-405F-999C-55C67F90D0A2} = {AA8B308E-5CB4-4E5B-8858-B7A8F49FC677}
+		{67906AF4-0630-446D-A6AE-51FAF6994BD3} = {337EA492-8E8B-4D3A-B53C-2CBDFF4DEE16}
+		{8EEB8C6A-086E-42C0-BBEB-D6649E7DE790} = {8F83141D-01F1-46BE-97DE-6E03D54F5696}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.sogeti.se:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DigiCon.Web.UI\\DigiCon.Web.UI.csproj
+		SccProjectTopLevelParentUniqueName1 = DigiConSolution.sln
+		SccProjectName1 = DigiCon.Web.UI
+		SccLocalPath1 = DigiCon.Web.UI
+		SccProjectUniqueName2 = DigiCon.Data.Sql\\DigiCon.Data.Sql.csproj
+		SccProjectTopLevelParentUniqueName2 = DigiConSolution.sln
+		SccProjectName2 = DigiCon.Data.Sql
+		SccLocalPath2 = DigiCon.Data.Sql
+		SccProjectUniqueName3 = DigiCon.Modeling.Diagram\\DigiCon.Modeling.Diagram.modelproj
+		SccProjectTopLevelParentUniqueName3 = DigiConSolution.sln
+		SccProjectName3 = DigiCon.Modeling.Diagram
+		SccLocalPath3 = DigiCon.Modeling.Diagram
+		SccProjectUniqueName4 = DigiCon.Domain.Entities\\DigiCon.Domain.Entities.csproj
+		SccProjectTopLevelParentUniqueName4 = DigiConSolution.sln
+		SccProjectName4 = DigiCon.Domain.Entities
+		SccLocalPath4 = DigiCon.Domain.Entities
+		SccProjectUniqueName5 = DigiCon.Domain.Logics\\DigiCon.Domain.Logics.csproj
+		SccProjectTopLevelParentUniqueName5 = DigiConSolution.sln
+		SccProjectName5 = DigiCon.Domain.Logics
+		SccLocalPath5 = DigiCon.Domain.Logics
+		SccProjectUniqueName6 = DigiCon.Tests.Repository\\DigiCon.Test.Repositories.csproj
+		SccProjectTopLevelParentUniqueName6 = DigiConSolution.sln
+		SccProjectName6 = DigiCon.Tests.Repository
+		SccLocalPath6 = DigiCon.Tests.Repository
+		SccProjectUniqueName7 = DigiCon.Service.Repositories\\DigiCon.Service.Repositories.csproj
+		SccProjectTopLevelParentUniqueName7 = DigiConSolution.sln
+		SccProjectName7 = DigiCon.Service.Repositories
+		SccLocalPath7 = DigiCon.Service.Repositories
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.sogeti.se:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DigiCon.Web.UI\\DigiCon.Web.UI.csproj
+		SccProjectTopLevelParentUniqueName1 = DigiConSolution.sln
+		SccProjectName1 = DigiCon.Web.UI
+		SccLocalPath1 = DigiCon.Web.UI
+		SccProjectUniqueName2 = DigiCon.Data.Sql\\DigiCon.Data.Sql.csproj
+		SccProjectTopLevelParentUniqueName2 = DigiConSolution.sln
+		SccProjectName2 = DigiCon.Data.Sql
+		SccLocalPath2 = DigiCon.Data.Sql
+		SccProjectUniqueName3 = DigiCon.Web.UI\\DigiCon.Web.UI.csproj
+		SccProjectTopLevelParentUniqueName3 = DigiConSolution.sln
+		SccProjectName3 = DigiCon.Web.UI
+		SccLocalPath3 = DigiCon.Web.UI
+		SccProjectUniqueName4 = DigiCon.Domain.Entities\\DigiCon.Domain.Entities.csproj
+		SccProjectTopLevelParentUniqueName4 = DigiConSolution.sln
+		SccProjectName4 = DigiCon.Domain.Entities
+		SccLocalPath4 = DigiCon.Domain.Entities
+	EndGlobalSection
+EndGlobal

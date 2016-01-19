@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DigiCon.Domain.Entities.Viewclient>
+<div>
+    <a class="list-group-item list-group-item-success"> Dina Vyklienter </a>
+    <h4 class="list-group-item-heading"></h4>
+    @foreach (var viewclient in Model)
+    {
+        <a id="viewclient-@viewclient.ViewclientID" 
+           class="list-group-item"
+           onclick="viewclientClicked(@viewclient.ViewclientID)">
+            @viewclient.Name
+            <span class="glyphicon glyphicon-menu-right pull-right"></span>
+        </a>
+    }
+</div>
